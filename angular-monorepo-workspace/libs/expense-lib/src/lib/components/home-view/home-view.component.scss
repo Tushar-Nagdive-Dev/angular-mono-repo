@@ -89,3 +89,47 @@ html, body {
 .card-container mat-card:last-child {
     margin-right: 0; /* Remove margin on the last card */
 }
+
+
+/* Table styling for black and white theme */
+.mat-table {
+    background-color: #1a1a1a; /* Dark background for the table */
+    color: #ffffff; /* White text color */
+    border-radius: 5px; /* Rounded corners for the table */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Header styling */
+.mat-header-cell {
+    background-color: #333333; /* Dark grey for header */
+    color: #ffffff; /* White text for header */
+    font-weight: 600; /* Bold text for header */
+    border-bottom: 2px solid #444444; /* Divider line below header */
+}
+
+/* Cell styling */
+.mat-cell {
+    background-color: #1a1a1a; /* Match table background */
+    color: #ffffff; /* White text for cells */
+    border-bottom: 1px solid #444444; /* Divider line between rows */
+}
+
+/* Hover effect for table rows */
+.mat-row:hover {
+    background-color: #444444; /* Darker grey background on hover */
+}
+
+/* Optional: Divider for rows */
+.mat-divider {
+    background-color: #444444; /* Dark grey divider */
+}
+
+/* Optional: Add some padding to the table cells */
+.mat-cell, .mat-header-cell {
+    padding: 12px 15px; /* Padding for cells */
+}
+
+/* Optional: Add a border around the table */
+.mat-table {
+    border: 1px solid #444444; /* Dark grey border for the table */
+}

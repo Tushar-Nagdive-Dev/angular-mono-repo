@@ -14,12 +14,16 @@ import { HomeViewComponent } from '../components/home-view/home-view.component';
 import { MatCardModule } from '@angular/material/card'
 import { BaseChartDirective } from 'ng2-charts'
 import { MatTableModule } from '@angular/material/table';
+import { ExpensesGirdViewComponent } from '../components/expenses-gird-view/expenses-gird-view.component';
+import { AgGridAngular } from 'ag-grid-angular';
+
 
 @NgModule({
   declarations: [
     ExpenseLibComponent,
     DashboardComponent,
-    HomeViewComponent
+    HomeViewComponent,
+    ExpensesGirdViewComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,8 @@ import { MatTableModule } from '@angular/material/table';
     MatDividerModule,
     MatCardModule,
     BaseChartDirective,
-    MatTableModule
+    MatTableModule,
+    AgGridAngular
   ],
   exports: [
     
