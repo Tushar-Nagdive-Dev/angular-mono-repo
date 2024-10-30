@@ -1,0 +1,84 @@
+.example-container {
+    width: auto;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #f03838;
+    /* The background property is added to clearly distinguish the borders between drawer and main
+       content */
+    background: #eee;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add padding for spacing */
+  }
+  
+  .logo {
+    width: 50px; /* Adjust size */
+    height: 50px; /* Adjust size */
+    border-radius: 50%; /* Make the logo round */
+    border: 2px solid #ccc; /* Add a border */
+    object-fit: cover; /* Ensure the image covers the area */
+  }
+  
+  .example-button-row {
+    margin-top: 20px; /* Add margin to separate buttons from the logo */
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .example-container {
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  mat-drawer {
+    height: 100%; /* Full height for the drawer */
+    padding: 0; /* Remove padding to avoid extra space */
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add padding for spacing */
+  }
+  
+  .logo {
+    width: 50px; /* Adjust size */
+    height: 50px; /* Adjust size */
+    border-radius: 50%; /* Make the logo round */
+    border: 2px solid #ccc; /* Add a border */
+    object-fit: cover; /* Ensure the image covers the area */
+  }
+  
+  .example-button-row {
+    display: flex; /* Flex layout for button row */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+  }
+  
+  .example-button-row {
+    display: flex; /* Flex layout for button row */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: stretch; /* Stretch buttons to full width */
+  }
+  
+  .full-width-button {
+    width: 100%; /* Make button full width */
+    margin: 0; /* Add margin for spacing between buttons */
+    background-color: #007bff; /* Button background color */
+    color: white !important; /* Button text color */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .full-width-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }

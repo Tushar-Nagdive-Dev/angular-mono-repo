@@ -6,3 +6,5 @@ berry-free-angular-admin-template-v4.1.0.zip
 
 angular-monorepo-workspace/node_modules
 angular-monorepo-workspace/.angular
+angular-monorepo-workspace/dist
+angular-monorepo-workspace/.editorconfig
