@@ -10,13 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button'
 import { MatDividerModule } from '@angular/material/divider';
-
-
+import { HomeViewComponent } from '../components/home-view/home-view.component';
+import { MatCardModule } from '@angular/material/card'
+import { BaseChartDirective } from 'ng2-charts'
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     ExpenseLibComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeViewComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCardModule,
+    BaseChartDirective,
+    MatTableModule
   ],
   exports: [
     

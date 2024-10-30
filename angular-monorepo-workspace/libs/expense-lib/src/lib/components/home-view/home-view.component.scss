@@ -1,0 +1,91 @@
+:host {
+    display: block; /* Ensure it behaves as a block element */
+    max-width: 100%; /* Set a maximum width */
+    margin: 0 auto; /* Center the content */
+    padding: 10px; /* Optional: Add padding */
+    background-color: #1a1a1a; /* Dark background for contrast */
+    color: #e0e0e0; /* Light grey text for better readability */
+    border-radius: 5px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+/* Card styling */  
+.mat-card-header {
+    color: #00796b; /* Teal header title for a refreshing look */
+    font-weight: 500; /* Medium weight for header */
+}
+
+h3 {
+    color: #00796b; /* Teal for headings */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Divider color */
+.mat-divider {
+    background-color: #00796b; /* Teal divider */
+}
+
+/* Chart styling */
+canvas {
+    max-height: 150px; /* Control height for smaller size */
+    margin: 0 auto;
+    background-color: #263238; /* Darker gray for charts */
+    border-radius: 5px; /* Rounded corners for charts */
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes the full height */
+    margin: 0; /* Remove default margin */
+}
+
+.example-container {
+    height: 100vh; /* Full height of the viewport */
+}
+
+.expense-card {
+    margin-top: 20px; /* Space between cards and expense card */
+    display: flex; /* Flex layout for the card content */
+    flex-direction: column; /* Stack header and content vertically */
+    background-color: #1c1c1c; /* Dark card background */
+    color: #e0e0e0; /* Light text color */
+    border: 1px solid #00796b; /* Teal border for a sleek look */
+}
+
+/* Chart container styling */
+.chart-container {
+    display: flex; /* Use flexbox to arrange charts horizontally */
+    justify-content: space-between; /* Space out the charts evenly */
+    align-items: flex-start; /* Align items to the top */
+    flex: 1; /* Allow chart container to grow */
+    margin: 20px; /* Margin around the chart container */
+}
+
+/* Chart section styling */
+.chart-section {
+    width: 48%; /* Control width of each chart section */
+    background-color: #37474f; /* Dark blue-gray background for each section */
+    padding: 10px; /* Padding around each chart */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+/* Card container styling */
+.card-container {
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: flex-start; /* Align items at the top */
+    margin: 20px; /* Margin around the container */
+}
+
+/* Card styling */
+.card-1 {
+    width: 45%; /* Set a width for the cards, adjust as needed */
+    margin-right: 10px; /* Space between cards */
+    background-color: #263238; /* Dark gray background for cards */
+    color: #e0e0e0; /* Light text color for better contrast */
+}
+
+/* Remove right margin from the last card */
+.card-container mat-card:last-child {
+    margin-right: 0; /* Remove margin on the last card */
+}
