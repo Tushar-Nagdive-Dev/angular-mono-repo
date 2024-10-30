@@ -4,44 +4,5 @@
 angular-material-admin-master.zip
 berry-free-angular-admin-template-v4.1.0.zip
 
-
-# Compiled output
-angular-monorepo-workspace/dist
-angular-monorepo-workspace/tmp
-angular-monorepo-workspace/out-tsc
-angular-monorepo-workspace/bazel-out
-
-# Node
-angular-monorepo-workspace/node_modules/
-angular-monorepo-workspace/npm-debug.log
-angular-monorepo-workspace/yarn-error.log
-
-# IDEs and editors
-/angular-monorepo-workspace/.idea/
-/angular-monorepo-workspace/.project
-/angular-monorepo-workspace/.classpath
-/angular-monorepo-workspace/.c9/
-/angular-monorepo-workspace/*.launch
-/angular-monorepo-workspace/.settings/
-/angular-monorepo-workspace/*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
-.DS_Store
-Thumbs.db
+angular-monorepo-workspace/node_modules
+angular-monorepo-workspace/.angular
