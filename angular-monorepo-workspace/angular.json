@@ -28,7 +28,8 @@
             "index": "projects/expenses-mgmt/src/index.html",
             "browser": "projects/expenses-mgmt/src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/expenses-mgmt/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -40,6 +41,7 @@
               "projects/expenses-mgmt/src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "projects/expenses-mgmt/src/styles.scss"
             ],
             "scripts": []
@@ -88,7 +90,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "projects/expenses-mgmt/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
@@ -212,7 +215,7 @@
       "projectType": "library",
       "root": "libs/expense-lib",
       "sourceRoot": "libs/expense-lib/src",
-      "prefix": "lib",
+      "prefix": "exp",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

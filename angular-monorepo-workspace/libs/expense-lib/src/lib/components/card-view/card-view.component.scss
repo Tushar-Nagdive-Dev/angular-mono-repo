@@ -1,0 +1,53 @@
+/* Soft gradient background for the entire page */
+.container-fluid {
+    background: linear-gradient(135deg, rgba(138, 98, 255, 0.6), rgba(103, 58, 183, 0.6)); /* Soft Purple Gradient */
+    padding: 50px 0;
+    min-height: 100vh;
+  }
+  
+  /* Style for the cards */
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+    background: linear-gradient(145deg, #7c4dff, #6a1b9a); /* Gradient for cards */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Slight hover effect */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card content (title, description, icon) */
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #f3f3f3;
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  

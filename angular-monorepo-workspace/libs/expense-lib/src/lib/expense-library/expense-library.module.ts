@@ -3,41 +3,33 @@ import { CommonModule } from '@angular/common';
 
 import { ExpenseLibraryRoutingModule } from './expense-library-routing.module';
 import { ExpenseLibComponent } from '../components/expense-lib.component';
-import { DashboardComponent } from '../components/dashboard/dashboard.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button'
-import { MatDividerModule } from '@angular/material/divider';
-import { HomeViewComponent } from '../components/home-view/home-view.component';
-import { MatCardModule } from '@angular/material/card'
 import { BaseChartDirective } from 'ng2-charts'
-import { MatTableModule } from '@angular/material/table';
-import { ExpensesGirdViewComponent } from '../components/expenses-gird-view/expenses-gird-view.component';
 import { AgGridAngular } from 'ag-grid-angular';
+import { LoginComponent } from '../components/auth/login/login.component';
+import { RegisterComponent } from '../components/auth/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { CardViewComponent } from '../components/card-view/card-view.component';
+import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
 
 
 @NgModule({
   declarations: [
     ExpenseLibComponent,
+    LoginComponent,
+    RegisterComponent,
     DashboardComponent,
-    HomeViewComponent,
-    ExpensesGirdViewComponent
+    CardViewComponent,
+    ExpenseHeaderComponent
   ],
   imports: [
     CommonModule,
     ExpenseLibraryRoutingModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatCardModule,
     BaseChartDirective,
-    MatTableModule,
-    AgGridAngular
+    AgGridAngular,
+    ReactiveFormsModule,
+    NgbCollapseModule
   ],
   exports: [
     

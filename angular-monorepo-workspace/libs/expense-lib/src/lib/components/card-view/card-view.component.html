@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-4" *ngFor="let feature of features">
+        <div class="card" [ngStyle]="{'background': feature.color}" (click)="navigateToFeature(feature.route)">
+          <div class="card-body">
+            <!-- Icon for the feature -->
+            <div class="card-icon">
+              <i [class]="feature.icon"></i> <!-- Dynamic icon based on feature -->
+            </div>
+            <!-- Title and Description -->
+            <h5 class="card-title">{{ feature.title }}</h5>
+            <p class="card-text">{{ feature.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  

@@ -1,44 +1,24 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
+// styles.scss
+$primary-color: #5A67D8; // Example primary color
+$secondary-color: #3182CE;
+$background-color: #F7FAFC;
+$text-color: #2D3748;
 
-// Define the theme object.
-$expenses-mgmt-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-:root {
-  @include mat.all-component-themes($expenses-mgmt-theme);
+body {
+  background-color: $background-color;
+  font-family: 'Roboto', sans-serif;
+  color: $text-color;
 }
 
-// Comment out the line below if you want to use the pre-defined typography utility classes.
-// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
-// @include mat.typography-hierarchy($expenses-mgmt-theme);
-
-// Comment out the line below if you want to use the deprecated `color` inputs.
-// @include mat.color-variants-backwards-compatibility($expenses-mgmt-theme);
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* styles.css */
-@import "@ag-grid-community/styles/ag-grid.css";
-@import "@ag-grid-community/styles/ag-theme-quartz.css";
+.auth-container {
+  max-width: 400px;
+  margin: 5% auto;
+  padding: 2rem;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}

@@ -82,6 +82,6 @@ export class ExpenseLibComponent {
   constructor(private router: Router) {}
 
   onGetStarted() {
-    this.router.navigate(['/dashboard']); // Replace with your actual dashboard route
+    this.router.navigate(['/login']); // Replace with your actual dashboard route
   }
 }

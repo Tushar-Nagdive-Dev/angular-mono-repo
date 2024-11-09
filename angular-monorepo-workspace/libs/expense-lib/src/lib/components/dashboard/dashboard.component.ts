@@ -1,37 +1,24 @@
-import { Component,OnInit } from '@angular/core';
-import { HomeViewComponent } from '../home-view/home-view.component';
-import { ExpensesGirdViewComponent } from '../expenses-gird-view/expenses-gird-view.component';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'lib-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit{
 
-  public loggedIn: boolean = true;
+  recentExpenses = [
+    { date: '2024-11-01', description: 'Groceries', amount: 50, category: 'Food' },
+    { date: '2024-11-05', description: 'Transport', amount: 20, category: 'Transport' },
+    { date: '2024-11-07', description: 'Utilities', amount: 100, category: 'Bills' },
+  ];
 
-  public componentToLoad: boolean = true;
+  constructor() {
 
-  loadComponentNow: any = null;
-
-  constructor() {}
+  }
 
   ngOnInit(): void {
-    if(this.componentToLoad) {
-      this.loadComponentNow = HomeViewComponent;
-    }
+    
   }
-
-  applyChanges(component: string) {
-    if(component === 'Home')
-      this.loadComponentNow = HomeViewComponent;
-    else if (component === 'Expenses') 
-      this.loadComponentNow = ExpensesGirdViewComponent;
-  }
-
-  logout() {
-
-  }
-
 
 }

@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+h2 {
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    color: $text-color;
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: $primary-color;
+    border: none;
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+    }
+  }
+  
+  .text-primary {
+    color: $secondary-color;
+    text-decoration: none;
+    &:hover {
+      color: darken($secondary-color, 10%);
+    }
+  }
+  
