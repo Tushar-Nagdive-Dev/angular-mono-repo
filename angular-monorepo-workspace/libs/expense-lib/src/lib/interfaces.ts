@@ -5,3 +5,10 @@ export interface Feature {
     icon: string;
     color: string;
 }
+
+export interface IRow {
+    make: string;
+    model: string;
+    price: number;
+    electric: boolean;
+}

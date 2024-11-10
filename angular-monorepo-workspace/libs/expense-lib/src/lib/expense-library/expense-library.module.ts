@@ -12,6 +12,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
+import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ExpenseHeaderComponent } from '../components/expense-header/expense-hea
     RegisterComponent,
     DashboardComponent,
     CardViewComponent,
-    ExpenseHeaderComponent
+    ExpenseHeaderComponent,
+    ExpenseListComponent
   ],
   imports: [
     CommonModule,

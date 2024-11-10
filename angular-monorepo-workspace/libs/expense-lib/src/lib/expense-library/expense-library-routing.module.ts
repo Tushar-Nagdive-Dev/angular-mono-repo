@@ -6,6 +6,7 @@ import { RegisterComponent } from '../components/auth/register/register.componen
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
+import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'card-view',
         component: CardViewComponent
+      },
+      {
+        path: 'expense-list',
+        component: ExpenseListComponent
       }
     ]
   },

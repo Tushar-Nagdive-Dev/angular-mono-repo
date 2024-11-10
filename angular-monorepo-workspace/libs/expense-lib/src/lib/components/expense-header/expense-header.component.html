@@ -2,7 +2,13 @@
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" routerLink="/">
-        <img src="assets/expense-logo.png" alt="Logo" class="logo"> Expense Manager
+        <img 
+          src="assets/expense-logo.png" 
+          srcset="assets/expense-logo.png 1x, assets/expense-logo.png 2x" 
+          alt="Logo" 
+          class="logo"
+        > 
+          Expense Manager
       </a>
   
       <!-- Collapsible Navigation Links -->
@@ -21,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+            <a class="nav-link" routerLink="/expense/connect/card-view" routerLinkActive="active">Views</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/reports" routerLinkActive="active">Reports</a>

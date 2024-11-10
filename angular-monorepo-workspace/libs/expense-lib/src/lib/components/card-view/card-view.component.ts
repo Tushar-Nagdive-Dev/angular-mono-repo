@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Feature } from '../../interfaces';
 
 @Component({
@@ -12,7 +12,8 @@ export class CardViewComponent implements OnInit{
   features: Feature[] = [];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -51,12 +52,19 @@ export class CardViewComponent implements OnInit{
         route: '/feature4', 
         icon: 'fas fa-bell',  // Font Awesome Icon
         color: '#7c4dff'  // Soft Purple
+      },
+      { 
+        title: 'Expense Grid', 
+        description: 'List View of Expenses (Overall)', 
+        route: 'expense/connect/expense-list', 
+        icon: 'fa-solid fa-circle-dollar-to-slot',  // Font Awesome Icon
+        color: 'linear-gradient(to right, #FDA766, #00563F)'  // Soft Purple
       }
     ];
   }
 
-  navigateToFeature(route: string) {
-    this.router.navigate([route]);
+  navigateToFeature(rts: string) {
+    this.router.navigate([rts]);
   }
 
 }

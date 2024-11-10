@@ -42,7 +42,9 @@
             ],
             "styles": [
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "projects/expenses-mgmt/src/styles.scss"
+              "projects/expenses-mgmt/src/styles.scss",
+              "ag-grid-community/styles/ag-grid.css",
+              "ag-grid-community/styles/ag-theme-quartz.css"
             ],
             "scripts": []
           },
