@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.inn.auth_server_exp.PrintExceptionLogs;
 import com.inn.auth_server_exp.dto.RegistrationRequest;
 import com.inn.auth_server_exp.entity.Users;
 import com.inn.auth_server_exp.repo.UserRepository;
@@ -42,7 +43,7 @@ public class UserService implements IUserService{
             user = this.userRepo.save(user);
             return user;
         } catch (Exception e) {
-            log.error("Error Occured Inside @class UserService @method registerUser", e);
+            PrintExceptionLogs.printException(UserService.class, "registerUser", e);
             return null;
         }
     }

@@ -20,7 +20,7 @@ import com.inn.auth_server_exp.services.IUserService;
 @EnableWebSecurity
 public class CustomSecurityConfig {
     
-    private final UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     private IUserService iUserService;
 
@@ -38,8 +38,8 @@ public class CustomSecurityConfig {
                 .anyRequest().authenticated())
             .sessionManagement(sess -> sess
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .addFilter(new JwtAuthenticationFilter(authenticationManager(http)))
-            .addFilter(new JwtAuthorizationFilter(authenticationManager(http)))
+            .addFilter(new JwtAuthenticationFilter(authenticationManager(http.getSharedObject(AuthenticationManagerBuilder.class))))
+            .addFilter(new JwtAuthorizationFilter(authenticationManager(http.getSharedObject(AuthenticationManagerBuilder.class))))
             .build();
     }
     
@@ -50,11 +50,8 @@ public class CustomSecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-            .userDetailsService(iUserService)
-            .passwordEncoder(passwordEncoder())
-            .and()
-            .build();
+    public AuthenticationManager authenticationManager(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        return auth.build();
     }
 }
