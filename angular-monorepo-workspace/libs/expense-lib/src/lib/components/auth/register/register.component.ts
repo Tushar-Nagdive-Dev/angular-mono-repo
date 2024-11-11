@@ -49,12 +49,13 @@ export class RegisterComponent implements OnInit {
       this.authService.register(user).subscribe(
           response => {
           console.log("User registered successfully", response);
+          this.router.navigate(['/login']);
         },
         error => {
           console.log("Registration error:", error);
         }
       );
-      this.router.navigate(['/login']);
+      
     }
   }
 }
