@@ -1,6 +1,5 @@
 package com.inn.auth_server_exp.services;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.inn.auth_server_exp.dto.RegistrationRequest;

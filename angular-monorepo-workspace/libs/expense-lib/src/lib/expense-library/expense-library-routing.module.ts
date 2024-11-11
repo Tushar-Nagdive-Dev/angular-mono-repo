@@ -7,6 +7,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: 'expense/connect',
     component: ExpenseHeaderComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',

@@ -1,3 +1,5 @@
+import { TemplateRef } from "@angular/core";
+
 export interface Feature {
     title: string; 
     description: string;
@@ -23,4 +25,9 @@ export interface User {
     password: string;
     email: string;
     roles: string
+}
+
+export interface Toast {
+    textOrTpl: string | TemplateRef<any>;
+    options: any;
 }

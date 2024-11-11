@@ -27,4 +27,28 @@ body {
   h1 {
     color: #333;
   }
-  
+
+  .bg-success {
+    background: linear-gradient(45deg, #4CAF50, #66BB6A);
+ }
+ 
+ .bg-danger {
+    background: linear-gradient(45deg, #F44336, #EF5350);
+ }
+ 
+ .bg-warning {
+    background: linear-gradient(45deg, #FF9800, #FFB74D);
+ }
+ 
+ .bg-info {
+    background: linear-gradient(45deg, #2196F3, #64B5F6);
+ }
+ 
+ .bg-primary {
+    background: linear-gradient(45deg, #3F51B5, #7986CB);
+ }
+ 
+ .bg-secondary {
+    background: linear-gradient(45deg, #9E9E9E, #BDBDBD);
+ }
+ 

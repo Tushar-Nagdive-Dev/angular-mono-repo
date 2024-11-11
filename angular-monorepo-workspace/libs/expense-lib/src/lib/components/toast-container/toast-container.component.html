@@ -1,0 +1,13 @@
+<ngb-toast *ngFor="let toast of toastService.toasts" [autohide]="true" [delay]="5000"
+            [class.bg-success]="toast.options.classname === 'bg-success'"
+            [class.bg-danger]="toast.options.classname === 'bg-danger'"
+            [class.bg-warning]="toast.options.classname === 'bg-warning'"
+            [class.bg-info]="toast.options.classname === 'bg-info'"
+            [class.bg-primary]="toast.options.classname === 'bg-primary'"
+            [class.bg-secondary]="toast.options.classname === 'bg-secondary'"
+            (hidden)="toastService.remove(toast)">
+    <ng-template [ngIf]="isTemplate(toast.textOrTpl)" [ngIfElse]="text">
+        <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+    </ng-template>
+    <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+</ngb-toast>

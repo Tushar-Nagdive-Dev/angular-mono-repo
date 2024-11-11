@@ -9,7 +9,7 @@ import { LoginComponent } from '../components/auth/login/login.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
@@ -17,6 +17,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from '../services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
+import { ToastContainerComponent } from '../components/toast-container/toast-container.component';
+import { HasValuePipe } from '../pipes/has-value.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
     CardViewComponent,
     ExpenseHeaderComponent,
     ExpenseListComponent,
+    ToastContainerComponent,
+    HasValuePipe
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,8 @@ import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
     BaseChartDirective,
     AgGridAngular,
     ReactiveFormsModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    NgbToastModule
   ],
   providers: [
     AuthService,
@@ -43,9 +48,6 @@ import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
       useClass: AuthInterceptor, 
       multi: true 
     }
-  ],
-  exports: [
-    
   ]
 })
 export class ExpenseLibraryModule { }

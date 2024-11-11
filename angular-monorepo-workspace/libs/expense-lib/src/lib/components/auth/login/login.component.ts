@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Credentials } from '../../../interfaces';
 import { AuthService } from '../../../services/auth.service';
+import { HasValuePipe } from '../../../pipes/has-value.pipe';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
   selector: 'lib-login',
@@ -16,12 +18,13 @@ export class LoginComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
@@ -34,9 +37,13 @@ export class LoginComponent implements OnInit{
         username: this.loginForm.controls['username'].value,
         password: this.loginForm.controls['password'].value
       }
-
-      this.authService.login(credentials).subscribe(() => {
-        this.router.navigate(['/expense/connect']);
+      const hasValue = new HasValuePipe();
+      this.authService.login(credentials).subscribe((res:any) => {
+        if(hasValue.transform(res)) {
+          this.router.navigate(['/expense/connect']);
+          this.authService.setToken(res.token)
+          this.toastService.show('Login Successfull', { classname: 'bg-success' });
+        }
       });
     }
   }

@@ -2,6 +2,7 @@ package com.inn.auth_server_exp.services.impl;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -40,6 +41,8 @@ public class UserService implements IUserService {
             user.setEmail(registrationRequest.getEmail());
             user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
             user.setRoles(registrationRequest.getRoles() != null ? registrationRequest.getRoles() : "USER");
+            user.setCreatedAt(new Date());
+            user.setModifiedAt(new Date());
             log.debug("@class UserService @method registerUser user :: {}", user);
             user = this.userRepo.save(user);
             return user;

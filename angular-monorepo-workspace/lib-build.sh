@@ -14,4 +14,7 @@ npm link expense-lib
 
 echo "\n" 
 echo "*****complete******"
-ng serve expenses-mgmt --port=4201
+# ng serve expenses-mgmt --port=4201
+cd ../../
+pwd
+ng serve expenses-mgmt --ssl --ssl-key key.pem --ssl-cert cert.pem --port=4201
