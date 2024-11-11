@@ -13,7 +13,10 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
-
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthService } from '../services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { ExpenseListComponent } from '../components/expense-list/expense-list.co
     DashboardComponent,
     CardViewComponent,
     ExpenseHeaderComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,14 @@ import { ExpenseListComponent } from '../components/expense-list/expense-list.co
     AgGridAngular,
     ReactiveFormsModule,
     NgbCollapseModule
+  ],
+  providers: [
+    AuthService,
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptor, 
+      multi: true 
+    }
   ],
   exports: [
     

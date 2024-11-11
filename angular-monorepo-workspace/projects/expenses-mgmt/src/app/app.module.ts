@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { ExpenseLibraryModule } from 'expense-lib';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JwtModule } from '@auth0/angular-jwt';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
@@ -16,9 +22,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ExpenseLibraryModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['localhost:1111'],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

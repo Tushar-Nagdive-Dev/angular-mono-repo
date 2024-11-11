@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- db.changelog-master.xml -->
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">   
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
+    <!-- Import SQL file for database changes -->
+    <changeSet id="1" author="your_name">
+        <sqlFile path="db/changelog/initial.sql" />
+    </changeSet>
 
-    <include file="db/changelog/initial.sql"/>   
 </databaseChangeLog>

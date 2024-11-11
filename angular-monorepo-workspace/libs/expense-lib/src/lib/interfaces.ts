@@ -12,3 +12,15 @@ export interface IRow {
     price: number;
     electric: boolean;
 }
+
+export interface Credentials {
+    username: string;
+    password: string;
+}
+
+export interface User {
+    username: string;
+    password: string;
+    email: string;
+    roles: string
+}

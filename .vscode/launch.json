@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AuthServerExpApplication<auth-server-exp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.inn.auth_server_exp.AuthServerExpApplication",
+            "projectName": "auth-server-exp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

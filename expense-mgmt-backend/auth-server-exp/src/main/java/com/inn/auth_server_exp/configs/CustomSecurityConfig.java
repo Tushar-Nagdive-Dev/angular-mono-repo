@@ -1,5 +1,6 @@
 package com.inn.auth_server_exp.configs;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -7,8 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -20,38 +19,32 @@ import com.inn.auth_server_exp.services.IUserService;
 @EnableWebSecurity
 public class CustomSecurityConfig {
     
-    private UserDetailsService userDetailsService;
-
+    @Autowired
     private IUserService iUserService;
 
-    public CustomSecurityConfig(UserDetailsService userDetailsService, IUserService iUserService) {
-        this.userDetailsService = userDetailsService;
-        this.iUserService = iUserService;
-    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated())
             .sessionManagement(sess -> sess
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .addFilter(new JwtAuthenticationFilter(authenticationManager(http.getSharedObject(AuthenticationManagerBuilder.class))))
-            .addFilter(new JwtAuthorizationFilter(authenticationManager(http.getSharedObject(AuthenticationManagerBuilder.class))))
+            .addFilter(new JwtAuthenticationFilter(authenticationManager))
+            .addFilter(new JwtAuthorizationFilter(authenticationManager))
+            .requiresChannel(channel -> channel.anyRequest().requiresSecure())
             .build();
     }
-    
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder auth = http.getSharedObject(AuthenticationManagerBuilder.class);
+        auth.userDetailsService(iUserService).passwordEncoder(passwordEncoder);
         return auth.build();
     }
 }

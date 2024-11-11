@@ -219,3 +219,7 @@ Citations:
 [6] https://angular.dev/tools/libraries/creating-libraries/
 [7] https://stackoverflow.com/questions/57170936/is-there-a-better-way-to-build-an-angular-monorepo-app-with-libraries
 [8] https://www.youtube.com/watch?v=hIEbJkP1M5E
+
+
+
+npm install @auth0/angular-jwt
