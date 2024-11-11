@@ -7,8 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 import com.inn.auth_server_exp.PrintExceptionLogs;
 
 import io.jsonwebtoken.Claims;
