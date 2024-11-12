@@ -8,6 +8,7 @@ import { CardViewComponent } from '../components/card-view/card-view.component';
 import { ExpenseHeaderComponent } from '../components/expense-header/expense-header.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
 import { AuthGuard } from '../guard/auth.guard';
+import { AddExpenseComponent } from '../components/add-expense/add-expense.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'expense-list',
         component: ExpenseListComponent
+      },
+      {
+        path: 'add-expense',
+        component: AddExpenseComponent
       }
     ]
   },

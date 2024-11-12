@@ -1,0 +1,144 @@
+<div class="container p-4">
+    <div class="row">
+        <!-- Left Column: Categories Cards -->
+        <div class="col-lg-4 mb-4">
+            <!-- Categories Card 1 -->
+            <div class="card shadow-sm border-0 mb-3">
+                <div class="card-header bg-gradient-secondary text-white">
+                    <h4 class="text-center">VARIABLE EXPENSES Categories</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Food & Dining
+                            <span class="badge bg-primary rounded-pill">5 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Transportation
+                            <span class="badge bg-success rounded-pill">3 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Entertainment
+                            <span class="badge bg-warning rounded-pill">4 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Utilities
+                            <span class="badge bg-info rounded-pill">2 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Health & Wellness
+                            <span class="badge bg-danger rounded-pill">1 item</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Others
+                            <span class="badge bg-secondary rounded-pill">3 items</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Categories Card 2 -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-gradient-secondary text-white">
+                    <h4 class="text-center">FIXED EXPENSES Categories</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Education
+                            <span class="badge bg-primary rounded-pill">2 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Shopping
+                            <span class="badge bg-success rounded-pill">7 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Bills
+                            <span class="badge bg-warning rounded-pill">6 items</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Travel
+                            <span class="badge bg-info rounded-pill">1 item</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Add Expense Form -->
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 adjust-in">
+                <div class="card-header bg-gradient-primary text-white text-center">
+                    <h2>Add New Expense</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+                        <!-- Expense Title -->
+                        <div class="form-group mb-3">
+                            <label for="title">Title</label>
+                            <input id="title" formControlName="title" type="text" class="form-control" placeholder="e.g., Grocery Shopping" />
+                        </div>
+
+                        <!-- Amount -->
+                        <div class="form-group mb-3">
+                            <label for="amount">Amount</label>
+                            <input id="amount" formControlName="amount" type="number" class="form-control" placeholder="e.g., 100" />
+                        </div>
+
+                        <!-- Date -->
+                        <div class="form-group mb-3">
+                            <label for="date">Date</label>
+                            <input id="date" formControlName="date" type="date" class="form-control" />
+                        </div>
+
+                        <!-- Category -->
+                        <div class="form-group mb-3">
+                            <label for="category">Category</label>
+                            <select id="category" formControlName="category" class="form-control">
+                                <option value="Food & Dining">Food & Dining</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Health & Wellness">Health & Wellness</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-group mb-3">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" formControlName="paymentMethod" class="form-control">
+                                <option value="Cash">Cash</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Mobile Payment">Mobile Payment</option>
+                            </select>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="form-group mb-3">
+                            <label for="tags">Tags</label>
+                            <input id="tags" formControlName="tags" type="text" class="form-control" placeholder="e.g., urgent, personal" />
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group mb-3">
+                            <label for="description">Description</label>
+                            <textarea id="description" formControlName="description" rows="3" class="form-control"></textarea>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="form-group mb-4">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" formControlName="notes" rows="3" class="form-control" placeholder="Additional notes..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Add Expense</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

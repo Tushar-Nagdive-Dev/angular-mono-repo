@@ -19,10 +19,10 @@ export class CardViewComponent implements OnInit{
   ngOnInit(): void {
     this.features = [
       { 
-        title: 'Feature 1', 
-        description: 'Manage all your expenses efficiently.', 
-        route: '/feature1', 
-        icon: 'fas fa-wallet',  // Font Awesome Icon
+        title: 'Add Expenses', 
+        description: 'Add all your expenses efficiently.', 
+        route: 'expense/connect/add-expense', 
+        icon: 'fa-solid fa-square-plus',  // Font Awesome Icon
         color: '#8e24aa'  // Soft Purple
       },
       { 

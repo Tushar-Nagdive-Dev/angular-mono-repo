@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
 import { ToastContainerComponent } from '../components/toast-container/toast-container.component';
 import { HasValuePipe } from '../pipes/has-value.pipe';
+import { AddExpenseComponent } from '../components/add-expense/add-expense.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HasValuePipe } from '../pipes/has-value.pipe';
     ExpenseHeaderComponent,
     ExpenseListComponent,
     ToastContainerComponent,
-    HasValuePipe
+    HasValuePipe,
+    AddExpenseComponent
   ],
   imports: [
     CommonModule,
