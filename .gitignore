@@ -10,3 +10,4 @@ angular-monorepo-workspace/dist
 angular-monorepo-workspace/.editorconfig
 
 expense-mgmt-backend/auth-server-exp/logs
+../../.DS_Store
