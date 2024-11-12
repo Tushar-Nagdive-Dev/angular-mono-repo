@@ -35,11 +35,15 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/settings" routerLinkActive="active">Settings</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" routerLink="/login" routerLinkActive="active">Logout</a>
+          </li>
         </ul>
   
         <!-- User Profile Dropdown -->
-        <ul class="navbar-nav ms-auto">
+        <!-- <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown">
+            Username
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -48,8 +52,8 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <!-- <img src="assets/user-avatar.png" alt="User Avatar" class="user-avatar"> -->
-              Username
+              <img src="assets/user-avatar.png" alt="User Avatar" class="user-avatar">
+              
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
@@ -58,7 +62,7 @@
               <li><a class="dropdown-item" routerLink="/logout">Logout</a></li>
             </ul>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>

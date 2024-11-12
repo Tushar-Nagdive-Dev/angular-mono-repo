@@ -64,4 +64,9 @@ export class AuthService {
   register(user: User) {
     return this.http.post(this.AUTH_BASE_URL + '/register', user);
   }
+
+  logout() {
+    this.setToken(null);
+    return true;
+  }
 }

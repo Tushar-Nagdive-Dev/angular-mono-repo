@@ -8,3 +8,5 @@ angular-monorepo-workspace/node_modules
 angular-monorepo-workspace/.angular
 angular-monorepo-workspace/dist
 angular-monorepo-workspace/.editorconfig
+
+expense-mgmt-backend/auth-server-exp/logs
