@@ -654,3 +654,28 @@ This solution covers:
 - Angular application to interact with both services and send JWT tokens in requests.
 
 You can further refine it by adding more details like role-based filtering, error handling, and logging for a production-ready setup.
+
+
+
+CREATE TABLE comprehensive_data_types (
+    id SERIAL PRIMARY KEY,
+    text_field VARCHAR(255),
+    long_text_field TEXT,
+    integer_field INTEGER,
+    big_integer_field BIGINT,
+    decimal_field NUMERIC(10, 2),
+    boolean_field BOOLEAN,
+    date_field DATE,
+    timestamp_field TIMESTAMP WITH TIME ZONE,
+    time_field TIME,
+    interval_field INTERVAL,
+    uuid_field UUID,
+    json_field JSONB,
+    xml_field XML,
+    bytea_field BYTEA,
+    inet_field INET,
+    macaddr_field MACADDR,
+    cidr_field CIDR,
+    tsvector_field TSVECTOR,
+    tsquery_field TSQUERY
+);

@@ -1,0 +1,106 @@
+<div class="container mt-5">
+    <div class="row">
+      <!-- Left Column: Total Expense and Categories -->
+      <div class="col-md-4">
+        <!-- Total Expense Card -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header custom-card-header">
+            <h4 class="text-center">Total Expense</h4>
+          </div>
+          <div class="card-body">
+            <h5 class="text-center">${{ totalExpense | number }}</h5>
+            <p class="text-center text-muted">Total expenses for this month</p>
+          </div>
+        </div>
+  
+        <!-- Expense Categories Card -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header custom-card-header">
+            <h4 class="text-center">Expense Categories</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Food & Dining
+                <span class="badge bg-primary rounded-pill">{{ expenseCategories.food | number }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Transportation
+                <span class="badge bg-success rounded-pill">{{ expenseCategories.transportation | number }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Entertainment
+                <span class="badge bg-warning rounded-pill">{{ expenseCategories.entertainment | number }}</span>
+              </li>
+              <!-- Add more categories here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right Column: Recent Transactions & Charts -->
+      <div class="col-md-8">
+        <!-- Recent Transactions Card -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header custom-card-header">
+            <h4 class="text-center">Recent Transactions</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Grocery Shopping
+                <span class="badge bg-danger rounded-pill">$120</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Uber Ride
+                <span class="badge bg-success rounded-pill">$15</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Restaurant Bill
+                <span class="badge bg-primary rounded-pill">$45</span>
+              </li>
+              <!-- Add more transactions here -->
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Expense Distribution Pie Chart -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header custom-card-header">
+            <h4 class="text-center">Expense Distribution</h4>
+          </div>
+          <div class="card-body">
+            <ngx-charts-pie-chart
+              [results]="expenseDistribution"
+              [scheme]="colorScheme"
+              [doughnut]="true"
+              [labels]="true">
+            </ngx-charts-pie-chart>
+          </div>
+        </div>
+  
+        <!-- Expense Trend Bar Chart -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-header custom-card-header">
+            <h4 class="text-center">Expense Trend</h4>
+          </div>
+          <div class="card-body">
+            <ngx-charts-bar-vertical
+              [results]="expenseTrend"
+              [scheme]="colorScheme"
+              [xAxis]="true"
+              [yAxis]="true"
+              [legend]="true"
+              [showDataLabel]="true">
+            </ngx-charts-bar-vertical>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Add Expense Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-primary btn-lg">Add Expense</button>
+    </div>
+  </div>
+  

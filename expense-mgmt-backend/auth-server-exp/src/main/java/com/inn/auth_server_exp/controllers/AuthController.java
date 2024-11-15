@@ -18,6 +18,7 @@ import com.inn.auth_server_exp.utils.JwtUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -48,4 +49,5 @@ public class AuthController {
 
         return ResponseEntity.ok(responseMap);
     }
+    
 }

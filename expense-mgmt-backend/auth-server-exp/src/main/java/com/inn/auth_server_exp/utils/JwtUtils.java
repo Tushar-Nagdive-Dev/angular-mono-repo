@@ -20,6 +20,10 @@ public class JwtUtils {
     private static final String SECRET_KEY = "EXP-ACCESS";
     private static final long EXPIRATION_TIME = 900_000;
 
+    public static String getSecretKey() {
+        return SECRET_KEY;
+    }
+
     public static String generateToken(String username) { 
         return Jwts.builder() 
             .setSubject(username) 

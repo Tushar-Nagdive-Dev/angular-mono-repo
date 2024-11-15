@@ -25,7 +25,7 @@ public class ExpenseSecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/expenses/**").authenticated()
+                .requestMatchers("/api/expenses/**").authenticated()
                 .anyRequest().permitAll())
             .addFilter(new JwtAuthorizationFilter(authenticationManager, SECRET_KEY))
             .sessionManagement(sess -> sess

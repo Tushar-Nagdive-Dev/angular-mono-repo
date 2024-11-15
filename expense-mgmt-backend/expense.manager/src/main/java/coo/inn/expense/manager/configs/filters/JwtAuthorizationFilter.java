@@ -17,10 +17,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
+    private static final Logger log = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
     private final String secretKey;
 
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager, @Value("${jwt.secret}") String secretKey) {
@@ -56,9 +59,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                         .setSigningKey(secretKey.getBytes())
                         .parseClaimsJws(token.replace("Bearer ", ""))
                         .getBody();
-
+                log.info("Print Claims object :: {}",claims.toString());
                 String username = claims.getSubject();
-
+                log.info("Print Claims object :: {}",username);
                 if (StringUtils.isNotEmpty(username)) {
                     // Return an authenticated token with an empty list of authorities
                     return new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());

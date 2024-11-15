@@ -1,0 +1,29 @@
+.card {
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+// .card-header {
+//     font-weight: bold;
+//     font-size: 1.2rem;
+// }
+
+.card-header {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.ngx-charts text {
+    font-weight: bold;
+}

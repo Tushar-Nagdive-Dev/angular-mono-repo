@@ -9,6 +9,8 @@ import { ExpenseHeaderComponent } from '../components/expense-header/expense-hea
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
 import { AuthGuard } from '../guard/auth.guard';
 import { AddExpenseComponent } from '../components/add-expense/add-expense.component';
+import { CurrenciesComponent } from '../components/currencies/currencies.component';
+import { BriefViewComponent } from '../components/brief-view/brief-view.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,14 @@ const routes: Routes = [
       {
         path: 'add-expense',
         component: AddExpenseComponent
+      },
+      {
+        path: 'currency-dashboard',
+        component: CurrenciesComponent
+      },
+      {
+        path: 'brief-view',
+        component: BriefViewComponent
       }
     ]
   },

@@ -1,0 +1,93 @@
+<div class="container py-4">
+    <div class="row">
+        <!-- Page Header -->
+        <div class="col-12 text-center mb-4">
+            <h1 class="display-5 text-primary">Currency Management Dashboard</h1>
+            <p class="text-muted">Track, analyze, and manage currency-specific expenses with advanced tools</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Summary -->
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 mb-3" *ngFor="let summary of dashboardSummary">
+            <div class="card text-center shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-muted">{{ summary.title }}</h5>
+                    <h2 class="text-primary">{{ summary.value }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Operations -->
+    <div class="row">
+        <!-- Currency Cards -->
+        <div class="col-lg-4 mb-4" *ngFor="let currency of currencies">
+            <div class="card shadow-sm border-0">
+                <div class="card-header text-white text-center" [ngStyle]="{'background': currency.color}">
+                    <h4>{{ currency.name }}</h4>
+                    <small>{{ currency.code }}</small>
+                </div>
+                <div class="card-body">
+                    <p><strong>Symbol:</strong> {{ currency.symbol }}</p>
+                    <p><strong>Exchange Rate:</strong> {{ currency.exchangeRate }} (to USD)</p>
+                    <p><strong>Total Spent:</strong> {{ currency.totalSpent | currency:currency.code }}</p>
+                    <p><strong>Transactions:</strong> {{ currency.transactions }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary btn-sm me-2" (click)="viewDetails(currency)">View Details</button>
+                    <button class="btn btn-success btn-sm" (click)="convertCurrency(currency)">Convert</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Chart -->
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-info text-white text-center">
+                    <h4>Currency Expense Distribution</h4>
+                </div>
+                <div class="card-body">
+                    <ngx-charts-pie-chart
+                        [view]="[700, 400]"
+                        [results]="expenseDistribution"
+                        [scheme]="colorScheme"
+                        [legend]="true"
+                        [labels]="true"
+                        [doughnut]="true"
+                        [animations]="true">
+                    </ngx-charts-pie-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Historical Exchange Rate Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-gradient-secondary text-white text-center">
+                    <h4>Historical Exchange Rates</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Currency</th>
+                                <th>Exchange Rate (to USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rate of historicalRates">
+                                <td>{{ rate.date }}</td>
+                                <td>{{ rate.currency }}</td>
+                                <td>{{ rate.rate }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

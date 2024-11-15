@@ -1,0 +1,29 @@
+/* Custom header color */
+.custom-card-header {
+    background-color: #1f78b4;  /* Example primary color */
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.custom-card-header h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* Card body styling */
+.card-body {
+    padding: 1rem;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    font-size: 1rem;
+    font-weight: 600;
+}

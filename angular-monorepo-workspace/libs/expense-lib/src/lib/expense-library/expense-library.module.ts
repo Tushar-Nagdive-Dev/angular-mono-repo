@@ -20,6 +20,9 @@ import { AuthInterceptor } from '../Interceptors/auth.Interceptor';
 import { ToastContainerComponent } from '../components/toast-container/toast-container.component';
 import { HasValuePipe } from '../pipes/has-value.pipe';
 import { AddExpenseComponent } from '../components/add-expense/add-expense.component';
+import { CurrenciesComponent } from '../components/currencies/currencies.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BriefViewComponent } from '../components/brief-view/brief-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { AddExpenseComponent } from '../components/add-expense/add-expense.compo
     ExpenseListComponent,
     ToastContainerComponent,
     HasValuePipe,
-    AddExpenseComponent
+    AddExpenseComponent,
+    CurrenciesComponent,
+    BriefViewComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +46,8 @@ import { AddExpenseComponent } from '../components/add-expense/add-expense.compo
     AgGridAngular,
     ReactiveFormsModule,
     NgbCollapseModule,
-    NgbToastModule
+    NgbToastModule,
+    NgxChartsModule
   ],
   providers: [
     AuthService,

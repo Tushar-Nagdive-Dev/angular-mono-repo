@@ -9,9 +9,7 @@ CREATE TABLE IF NOT EXISTS expenses (
     payment_method VARCHAR(255) NOT NULL,
     description TEXT,
     notes TEXT,
-    tags VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    tags VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS categories (
@@ -22,9 +20,7 @@ CREATE TABLE IF NOT EXISTS categories (
     category_id INT NOT NULL,
     total_expense NUMERIC(10, 2) NOT NULL,
     payment_method VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    description TEXT
 );
 
 CREATE TABLE IF NOT EXISTS currency (
