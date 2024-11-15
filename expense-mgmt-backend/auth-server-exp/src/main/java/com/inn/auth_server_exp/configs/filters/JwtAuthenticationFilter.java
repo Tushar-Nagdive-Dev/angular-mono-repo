@@ -12,6 +12,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.inn.auth_server_exp.PrintExceptionLogs;
 import com.inn.auth_server_exp.entity.Users;
 import com.inn.auth_server_exp.utils.JwtUtils;
 
@@ -30,10 +31,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         this.authenticationManager = authenticationManager;
     }
 
-    public static void printException(String methodName, Exception ex) {
-        log.error("Error Inside @class JwtAuthenticationFilter @method :: {}, ",methodName, ex);
-    }
-
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException{
         log.info("Inside @class JwtAuthenticationFilter @method attemptAuthentication");
@@ -41,7 +38,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             Users creds = new ObjectMapper().readValue(req.getInputStream(), Users.class);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(), creds.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
-            printException("attemptAuthentication", e);
+            PrintExceptionLogs.printException(JwtAuthenticationFilter.class, SPRING_SECURITY_FORM_PASSWORD_KEY, e);
             throw new RuntimeException(e);
         }
     }
@@ -50,6 +47,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth) throws IOException, ServletException {
         log.info("Inside @class JwtAuthenticationFilter @method successfulAuthentication ");
         String token = JwtUtils.generateToken(auth.getName());
-        res.addHeader("Authorization", "Bearer" + token);
+        res.addHeader("Authorization", "Bearer " + token);
     }
 }
