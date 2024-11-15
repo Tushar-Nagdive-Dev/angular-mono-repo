@@ -8,6 +8,17 @@
             "mainClass": "com.inn.auth_server_exp.AuthServerExpApplication",
             "projectName": "auth-server-exp",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57378 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=auth-server-exp"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<expenseManager>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "coo.inn.expense.manager.Application",
+            "projectName": "expenseManager",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]

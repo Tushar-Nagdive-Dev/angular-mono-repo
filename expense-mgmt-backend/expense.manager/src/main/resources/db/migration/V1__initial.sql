@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS currency (
     MinorUnit INT,
     ExchangeRate DECIMAL(10, 4),
     PeggedTo CHAR(3),
-    LastUpdated DATETIME DEFAULT CURRENT_TIMESTAMP
+    LastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 

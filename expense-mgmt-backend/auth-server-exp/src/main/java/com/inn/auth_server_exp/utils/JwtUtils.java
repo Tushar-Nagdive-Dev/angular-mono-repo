@@ -6,7 +6,6 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import com.inn.auth_server_exp.PrintExceptionLogs;
 
@@ -18,13 +17,8 @@ import jakarta.servlet.http.HttpServletRequest;
 public class JwtUtils {
 
     private static final Logger log = LoggerFactory.getLogger(JwtUtils.class);
-    // private static final String SECRET_KEY = "EXP-ACCESS";
-    // private static final long EXPIRATION_TIME = 900_000;
-    @Value("${jwt.secret}")
-    private static String SECRET_KEY;
-
-    @Value("${jwt.expiration}")
-    private static long EXPIRATION_TIME;
+    private static final String SECRET_KEY = "EXP-ACCESS";
+    private static final long EXPIRATION_TIME = 900_000;
 
     public static String generateToken(String username) { 
         return Jwts.builder() 
