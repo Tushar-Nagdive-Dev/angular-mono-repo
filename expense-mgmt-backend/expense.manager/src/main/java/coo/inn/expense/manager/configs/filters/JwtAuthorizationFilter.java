@@ -3,23 +3,22 @@ package coo.inn.expense.manager.configs.filters;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import coo.inn.expense.manager.configs.JwtTokenContext;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
@@ -39,15 +38,27 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
         // Check if header is missing or does not contain a Bearer token
         if (header == null || !header.startsWith("Bearer ")) {
-            chain.doFilter(request, response);
+            chain.doFilter(request, response); // No token, just proceed
             return;
         }
 
-        // Get authentication from the token
-        UsernamePasswordAuthenticationToken authentication = getAuthentication(header);
+        // Extract token (without "Bearer " prefix)
+        String token = header.replace("Bearer ", "");
 
-        // Set authentication in the security context if token is valid
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        // Get authentication from the token
+        UsernamePasswordAuthenticationToken authentication = getAuthentication(token);
+
+        // If authentication is successful, set security context
+        if (authentication != null) {
+            JwtTokenContext.setUsername(authentication.getName());  // Set username from token claims
+            JwtTokenContext.setUserId((Long) Jwts.parser()
+                .setSigningKey(secretKey.getBytes())
+                .parseClaimsJws(token)
+                .getBody()
+                .get("userId"));  // Set userId from token claims
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        }
+
         chain.doFilter(request, response);
     }
 
@@ -57,17 +68,20 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                 // Parse the JWT token
                 Claims claims = Jwts.parser()
                         .setSigningKey(secretKey.getBytes())
-                        .parseClaimsJws(token.replace("Bearer ", ""))
+                        .parseClaimsJws(token)
                         .getBody();
-                log.info("Print Claims object :: {}",claims.toString());
+
                 String username = claims.getSubject();
-                log.info("Print Claims object :: {}",username);
+                Long userId = (Long) claims.get("userId");
+
+                log.info("Claims - Username: {}, UserId: {}", username, userId);
+
                 if (StringUtils.isNotEmpty(username)) {
                     // Return an authenticated token with an empty list of authorities
                     return new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
                 }
             } catch (Exception e) {
-                logger.error("Failed to parse JWT token", e);
+                log.error("Failed to parse JWT token", e);
             }
         }
         return null;

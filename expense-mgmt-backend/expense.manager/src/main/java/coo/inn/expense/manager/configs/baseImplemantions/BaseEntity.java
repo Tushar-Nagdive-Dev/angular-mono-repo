@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import coo.inn.expense.manager.configs.JwtTokenContext;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
@@ -42,11 +43,15 @@ public abstract class BaseEntity {
     @PrePersist 
     protected void onCreate() {
         this.createdTime = LocalDateTime.now();
+        this.creatorId = JwtTokenContext.getUserId();
+        this.creator = JwtTokenContext.getUsername();
     }
 
     @PreUpdate
     protected void onUpdate() {
         this.modifiedTime = LocalDateTime.now();
+        this.modifierId = JwtTokenContext.getUserId();
+        this.modifier = JwtTokenContext.getUsername();
     }
 
     public Long getId() {

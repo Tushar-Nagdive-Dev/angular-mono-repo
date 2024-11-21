@@ -2,6 +2,7 @@ package coo.inn.expense.manager.models;
 
 import java.util.List;
 
+import coo.inn.expense.manager.configs.baseImplemantions.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "category_details")
 @Setter @Getter @NoArgsConstructor @ToString
-public class CategoryDetails {
+public class CategoryDetails extends BaseEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
